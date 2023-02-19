@@ -10,11 +10,11 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func snippetView(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("snipper creation"))
+	w.Write([]byte("snippet creation"))
 }
 
 func snippetCreate(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("snipper creation"))
+	w.Write([]byte("snippet creation"))
 }
 
 func main() {
