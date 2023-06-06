@@ -12,7 +12,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/snippet/view", snippetView)
 	mux.HandleFunc("/snippet/create", snippetCreate)
-	log.Println("Starting server on %s", *addr)
+	log.Println("Starting server on port",*addr )
 	err := http.ListenAndServe(*addr, mux)
 	log.Fatal(err)
 }
