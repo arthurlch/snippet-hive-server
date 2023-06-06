@@ -6,10 +6,12 @@ import (
 )
 
 func main() {
+	addr := flag.String("addr", "4000", "HTTP Network Address")  
+	flag.Parse()
 	mux := http.NewServeMux()
 	mux.HandleFunc("/snippet/view", snippetView)
 	mux.HandleFunc("/snippet/create", snippetCreate)
-	log.Println("Starting server on :4000")
-	err := http.ListenAndServe(":4000", mux)
+	log.Println("Starting server on %s", *addr)
+	err := http.ListenAndServe(*addr, mux)
 	log.Fatal(err)
 }
