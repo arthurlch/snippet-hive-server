@@ -23,21 +23,18 @@ func main() {
 
 	app := &application{
 		errorLog: errorLog,
-		infoLog: infoLog
+		infoLog: infoLog,
 	}
 	
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("/snippet/view", snippetView)
-	mux.HandleFunc("/snippet/create", snippetCreate)
 
 	srv := &http.Server{
 		Addr: *addr,
 		ErrorLog: errorLog,
-		Handler: mux,
+		Handler: app.routes(),
 	}
 
 	infoLog.Println("Starting server on port",*addr )
 	err := srv.ListenAndServe()
 	errorLog.Fatal(err)
 }
+
